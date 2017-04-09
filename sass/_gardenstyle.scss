@@ -1,0 +1,265 @@
+.garden-style-container {
+    margin-top: 40px;
+}
+
+.garden-style-column {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    a {
+        margin: 10px 15px;
+        text-decoration: none;
+        color: $color-secondary;
+        text-align: center;
+        text-transform: uppercase;
+
+        &:hover {
+
+            h3 {
+                color: $color-primary;
+            }
+        }
+
+        h3 {
+            font-size: 20px;
+            font-family: 'Source Sans Pro';
+            transition: .3s ease-out;
+        }
+    }
+}
+
+.garden-style-img {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    background: $color-background-not-transparent;
+
+    img {
+        display: block;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        transition: .3s ease;
+    }
+
+    &::before {
+        z-index: 2;
+        background-color: $color-font;
+        width: 1px;
+        height: 25px;
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: .4s ease;
+    }
+
+    &::after {
+        z-index: 2;
+        background-color: $color-font;
+        width: 25px;
+        height: 1px;
+        content: '';
+        position: absolute;
+        left: 20%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: .4s ease;
+    }
+
+    &:hover {
+
+        img {
+            opacity: .6;
+        }
+
+        &::before {
+            opacity: 1;
+            top: 50%;
+        }
+
+        &::after {
+            opacity: 1;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .circle-garden-style {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}
+
+.circle-garden-style {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    opacity: 0;
+    margin-left: -25px;
+    margin-top: -25px;
+    border: 1px solid $color-font;
+    border-radius: 50%;
+    transition: .15s ease;
+    transform: scale(1.5);
+    z-index: 2;
+}
+
+.garden-style-hover {
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 100%;
+    background-color: $background-hover-portfolio;
+}
+
+.garden-style-wrapper {
+    margin-top: 100px;
+
+    .heading-style {
+        text-align: left;
+        margin-top: 20px;
+    }
+}
+
+.garden-style-col {
+    margin-bottom: 60px;
+
+    &.marg-change {
+        margin-bottom: 30px;
+    }
+}
+
+.clear {
+    clear: both;
+}
+
+.garden-style-row {
+    width: 55%;
+    float: left;
+    margin-right: 40px;
+    margin-bottom: 20px;
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.garden-style-description {
+
+    p {
+        font-weight: 400;
+        font-size: 15px;
+        margin: 0;
+        padding: 0;
+        line-height: 22.5px;
+    }
+}
+
+.simples-items-styles {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+
+    &.marg {
+        padding-bottom: 20px;
+    }
+}
+
+.item-houzz {
+    padding-right: 5px;
+
+    img {
+        display: block;
+        width: 100%;
+    }
+}
+
+.caption-houzz {
+    text-align: center;
+    font-size: 12px;
+}
+
+.paragraph-style-garden {
+    font-weight: 400;
+    font-size: 15px;
+    margin: 0 0 50px;
+    padding: 0;
+    line-height: 22.5px;
+}
+
+.arrow-back {
+    text-align: right;
+    margin-top: 20px;
+
+    a {
+        font-size: 20px;
+        font-weight: 700;
+        color: $color-secondary;
+        text-decoration: none;
+        transition: .3s;
+
+        &:hover {
+            color: $color-primary;
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    .garden-style-column {
+
+        h3 {
+            margin: 20px 0;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .garden-style-column {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .garden-style-col {
+
+        .garden-style-row {
+            float: none;
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 420px) {
+    .garden-style-container {
+        margin-top: 20px;
+    }
+
+    .garden-style-wrapper {
+        margin-top: 50px;
+    }
+
+    .simples-items-styles {
+        flex-direction: column;
+
+        .item-houzz {
+            margin-bottom: 20px;
+
+            img {
+                width: auto;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    .arrow-back {
+        text-align: center;
+    }
+}

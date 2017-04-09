@@ -1,0 +1,404 @@
+.map-google {
+    min-height: 500px;
+}
+
+.survey-contact-wrapper {
+    margin-top: 80px;
+}
+
+.paragraph-contact {
+    text-align: center;
+    font-style: italic;
+    opacity: .7;
+    padding: 20px 50px;
+}
+
+.form-contact {
+    margin-top: 40px;
+}
+
+.form-wrapper {
+    display: flex;
+}
+
+.left-form,
+.right-form {
+    width: 50%;
+    padding: 0 15px;
+
+    input,
+    textarea {
+        width: 100%;
+        box-sizing: border-box;
+        height: 35px;
+        border: 0;
+        border-bottom: 1px solid $border-bottom;
+        background-color: transparent;
+        padding: 0;
+        font-size: 15px;
+        margin-top: 25px;
+        font-family: 'Source Sans Pro', sans-serif;
+        text-transform: uppercase;
+
+        &::placeholder {
+            color: $color-secondary;
+        }
+
+        &:focus {
+            outline: none;
+            border-bottom: 1px solid $color-primary;
+        }
+    }
+
+    textarea {
+        height: 100%;
+        resize: none;
+        border: 1px solid $border-bottom;
+        padding: 15px;
+        margin: 0;
+
+        &:focus {
+            border: 1px solid $color-primary;
+        }
+    }
+}
+
+.submit-wrapper {
+    padding: 20px 15px;
+}
+
+.survey-container {
+    margin-top: 80px;
+}
+
+.accordion-survey {
+    position: relative;
+    text-align: center;
+}
+
+.ui-accordion {
+
+    .ui-accordion-header {
+        padding: 15px;
+        font-size: 15px;
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    .ui-state-active {
+        background-color: $color-primary;
+        color: $color-font;
+    }
+
+    .ui-accordion-content {
+        border: 1px solid $color-primary;
+        border-radius: 8px;
+        text-align: left;
+        padding: 40px;
+    }
+}
+
+.slide-survey {
+    background-color: transparent;
+    color: $color-primary;
+    outline: none;
+    text-transform: uppercase;
+    border: 1px solid $color-primary;
+    transition: .3s;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.survey-main {
+    border-top: 1px solid $color-primary;
+    display: none;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.form-survey {
+
+    .question {
+        display: inline;
+    }
+
+    ol,
+    ul {
+
+        li {
+            padding: 10px;
+        }
+    }
+
+    textarea {
+        width: 90%;
+        height: 60px;
+        outline: none;
+        box-sizing: border-box;
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    label {
+        cursor: pointer;
+        display: inline-block;
+    }
+
+    .choose {
+        display: inline-block;
+        position: relative;
+        top: -2px;
+        margin-left: 3px;
+    }
+
+    .checkbox-field {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        margin-left: 8px;
+        margin-right: 0;
+        border: 3px solid $color-primary;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
+    .checkbox-hide {
+        display: none;
+    }
+
+    input {
+        &:checked + .checkbox-field  {
+            background-color: $color-primary;
+        }
+    }
+}
+
+.items-choose {
+    width: 80%;
+
+    label {
+        margin-bottom: 10px;
+    }
+}
+
+.fileuploader {
+    background-color: transparent;
+    margin: 0;
+    width: 80%;
+    padding-left: 0;
+
+    ul {
+        &:not(:empty) {
+            margin-top: 20px;
+        }
+    }
+}
+
+.fileuploader-item {
+
+    .column-title {
+
+        div {
+            font-weight: 400;
+            font-style: italic;
+            color: $color-secondary;
+        }
+    }
+}
+
+.input-file-trigger,
+.input-file-trigger-maps {
+    display: block;
+    padding: 12px;
+    background: $color-primary;
+    color: $color-font;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: .4s;
+    width: 150px;
+
+    &:hover,
+    &:focus {
+        background: $color-secondary;
+        color: $color-font;
+    }
+}
+
+.summary {
+    padding: 0 10px 0 48px;
+}
+
+.attach-files {
+
+    li {
+        padding: 5px;
+    }
+}
+
+.thanks-survey {
+    text-align: center;
+    font-family: 'Pacifico';
+    font-size: 25px;
+    color: $color-primary;
+    padding: 10px 0 35px;
+}
+
+.submit-survey-button {
+    padding: 10px 30px;
+}
+
+.personal-data {
+    width: 90%;
+    margin: 20px 0 40px;
+    display: flex;
+
+    .personal-data-right,
+    .personal-data-left {
+        width: 370px;
+
+        input {
+            margin-top: 0;
+        }
+    }
+}
+
+.name-survey,
+.email-survey {
+    min-width: 350px;
+    margin-right: 20px;
+    padding: 10px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.error {
+    color: $reset-color;
+    margin-top: 5px;
+
+    &.position {
+        margin-left: 15px;
+        position: relative;
+        top: -2px;
+    }
+}
+
+.error-checkbox {
+    margin: 0 0 6px;
+}
+
+.buttons-captcha {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 90%;
+    margin-top: 20px;
+}
+
+@media (max-width: 1023px) {
+    .personal-data {
+        flex-direction: column;
+
+        .personal-data-left {
+            margin-bottom: 15px;
+        }
+    }
+
+    .buttons-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+
+        .but {
+            float: none;
+            margin: 10px 0 0;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .form-wrapper {
+        flex-direction: column;
+
+        .left-form,
+        .right-form {
+            width: 100%;
+            box-sizing: border-box;
+        }
+    }
+
+    .right-form {
+        margin-top: 50px;
+    }
+
+    .buttons-captcha {
+        flex-direction: column;
+    }
+
+    .personal-data {
+
+        .personal-data-left,
+        .personal-data-right {
+            width: 200px;
+        }
+    }
+
+    .name-survey,
+    .email-survey {
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 420px) {
+    .personal-data {
+
+        .personal-data-left,
+        .personal-data-right {
+            width: 100%;
+        }
+    }
+
+    .name-survey,
+    .email-survey {
+        width: 100%;
+    }
+
+    .summary {
+        padding: 0;
+    }
+
+    .ui-accordion {
+
+        .ui-accordion-header {
+            width: 200px;
+        }
+
+        .ui-accordion-content {
+            padding: 10px;
+        }
+    }
+
+    .form-survey {
+
+        ol {
+            padding-left: 20px;
+        }
+
+        textarea {
+            width: 100%;
+        }
+    }
+
+    .buttons-captcha {
+        margin: 0;
+        width: 100%;
+    }
+
+    .g-recaptcha {
+        transform-origin: 100% 0;
+        transform: scale(.85);
+    }
+
+    .items-choose {
+        width: 100%;
+    }
+}

@@ -1,0 +1,108 @@
+.button-link {
+    color: $color-font;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    display: block;
+}
+
+.button-wrap {
+    cursor: pointer;
+    position: absolute;
+    z-index: 2;
+    top: 72%;
+    left: 25%;
+    transform: translate(-50%, -50px);
+    width: 200px;
+    height: 47px;
+    perspective: 1000px;
+    transition: $transition-property;
+    opacity: 0;
+
+    &:hover {
+        .button-green {
+            transform: rotateX(-90deg);
+        }
+
+        .button-green-back {
+            transform: rotateX(0deg);
+            z-index: 1;
+        }
+    }
+}
+
+.button-green {
+    @include button-green;
+    color: $color-primary;
+}
+
+.button-green-back {
+    @include button-green;
+    transform: rotateX(90deg);
+    background-color: $color-primary;
+}
+
+.slide-button {
+    transform: translate(-50%, 0);
+    opacity: 1;
+}
+
+.button-white {
+    @include button-white;
+}
+
+.but {
+    border: 0;
+    text-transform: uppercase;
+    float: right;
+    padding: 12px 40px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .35s ease;
+    outline: none;
+
+    &.send-button {
+        background-color: $color-secondary;
+        color: $color-font;
+        border: 2px solid $color-secondary;
+        font-family: 'Source Sans Pro', sans-serif;
+
+        &:hover {
+            background-color: $color-primary;
+            border: 2px solid $color-primary;
+        }
+    }
+
+    &.reset-button {
+        border: 2px solid $color-primary;
+        background-color: transparent;
+        color: $color-primary;
+        margin-right: 20px;
+        font-family: 'Source Sans Pro', sans-serif;
+
+        &:hover {
+            color: $color-font;
+            background-color: $reset-color;
+            border: 2px solid $reset-color;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .button-wrap {
+        left: 50%;
+        width: 180px;
+        height: 40px;
+    }
+
+    .button-link {
+        font-size: 12px;
+    }
+
+    .button-green,
+    .button-green-back {
+        transform-origin: 100px 20px -20px;
+    }
+}

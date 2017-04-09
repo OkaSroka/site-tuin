@@ -1,0 +1,46 @@
+@mixin position($position, $index, $top, $left, $bottom, $right) {
+    position: $position;
+    z-index: $index;
+    top: $top;
+    left: $left;
+    bottom: $bottom;
+    right: $right;
+}
+
+@mixin button-green {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 12px 24px;
+    transform-origin: 100px 23px -23px;
+    transform-style: preserve-3d;
+    display: block;
+    transition: transform .5s;
+    border: 2px solid $color-primary;
+}
+
+@mixin button-white {
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid $color-font;
+    border-radius: 25px;
+    color: $color-font;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 15px;
+    margin-top: 20px;
+    transition: .5s;
+
+    &:hover {
+        background-color: $color-background;
+        color: $color-primary;
+    }
+}
+
+@mixin background-image($url) {
+    background-image: url($url);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

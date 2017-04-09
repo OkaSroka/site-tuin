@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body>
+        <% include ../partials/header %>
+        <div class="section-header">
+            <div class="background-header blog-img">
+                <div class="caption-header-background">
+                    <h1>Blog</h1>
+                    <h3 class="blog-header">Projektowanie ogrodów</h3>
+                </div>
+            </div>            
+        </div>
+        <div class="blog-wrapper-posts">
+            <div class="container">
+                <aside class="widget-search width-change">
+                    <form role="search" class="search-form" method="get" id="searchform" action="/search">
+                        <input type="text" name="q" id="tipue_search_input" placeholder="Wyszukaj...">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </aside>
+                <div id="tipue_search_content"></div>
+            </div>
+        </div>
+        <% include ../partials/footer %>
+    </body>
+</html>

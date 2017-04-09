@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body>
+        <% include ../partials/header %>
+        <div class="googleMaps">
+            <div id="map" class="map-google"></div>
+        </div>
+        <div class="survey-contact-wrapper">
+            <div class="container">
+                <h1>Formularz kontaktowy</h1>
+                <p class="paragraph-contact">Jeżeli szukasz jakiejś pomocy w każdym aspekcie swojego ogrodu, my z przyjemnością pomożemy. Zadzwoń do nas lub skontatktuj się poprzez formularz, aby omówić swoje wymagania. Czekamy na kontakt z Państwem!</p>
+                <div class="form-contact">
+                    <form id="form-message">
+                        <div class="form-wrapper">
+                            <div class="left-form">
+                                <input name="name" minlength="2" type="text" placeholder="Imię i Nazwisko" required /><br />
+                                <input name="email" type="email" placeholder="E-mail" required /><br />
+                                <input name="phoneNumber" type="tel" placeholder="Telefon" />
+                            </div>
+                            <div class="right-form">
+                                <textarea name="message" placeholder="Wiadomość" minlength="2" required></textarea>
+                            </div>
+                        </div>
+                        <div class="submit-wrapper">
+                            <input name="submit" type="submit" value="Wyślij" class="but send-button" id="send-message" />
+                        </div>
+                    </form>
+                </div>
+                <div class="survey-container" id="go-to-survey">
+                    <h1>Wypełnij ankietę</h1>
+                    <p class="paragraph-contact">Pisanie odpowiedzi na wszystkie pytania nie jest konieczne. Mają one na celu pomóc w podjęciu istotnych decyzji w projektowaniu krajobrazu. Naszym zamiarem jest stworzenie gotowego projektu ogrodu, który jest odbiciem Ciebie. Proszę nam powiedzieć, kim jesteś i co chcesz. Być może myślisz o kilku ważnych rzeczach. Jeżeli nie chcesz wypełniać formularza przez Internet, napisz do nas a prześlemy Ci go na e-maila. Jeżeli nie chcesz odpowiadać na jakieś pytanie wstaw myślnik.</p>
+                    <div id="accordion" class="accordion-survey ui-accordion ui-widget ui-helper-reset">
+                        <h2 class="slide-survey ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default">Rozwiń, aby wypełnić ankietę.</h2>
+                        <div class="survey-main">
+                            <h4>GŁÓWNE INFORMACJE:</h4>
+                            <form class="form-survey" id="survey" action="exmaple.php" method="post" enctype="multipart/form-data">
+                                <ol>
+                                    <li>
+                                        <label for="family" class="question">Proszę wymienić członków swojej rodziny (jeżeli posiadasz dzieci to także ich wiek) oraz ich główne zainteresowania.</label><br /><br />
+                                        <textarea name="family_members" id="family"></textarea>
+                                    </li>
+                                    <li>
+                                        <label for="animal"  class="question">Czy masz zwierzęta, które wymagają specjalnego obszaru lub wybiegu w ogrodzie? Jeżeli tak, wymień jakie.</label><br /><br />
+                                        <label>
+                                            <input name="animals" value="ścieżki" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">tak</span>
+                                        </label>
+                                        <label>
+                                            <input name="animals" value="ścieżki" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">nie</span>
+                                        </label>
+                                        <label id="animals-error" class="error" for="animals"></label>
+                                        <br /><br />
+                                        <textarea name="animal-area" id="animal"></textarea>
+                                    </li>
+                                    <li>
+                                        <label for="allergy-fam" class="question">Czy są jakieś alergie lub inne choroby, które należy uwzględnić przy projektowaniu? Jeżeli tak, wymień jakie.</label><br /><br />
+                                        <label>
+                                            <input name="allergy" value="ścieżki" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">tak</span>
+                                        </label>
+                                        <label>
+                                            <input name="allergy" value="ścieżki" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">nie</span>
+                                        </label>
+                                        <label id="allergy-error" class="error" for="allergy"></label>
+                                        <br /><br />
+                                        <textarea name="family-allergy" id="allergy-fam"></textarea>
+                                    </li>
+                                    <li>
+                                        <label for="others-items" class="question">Proszę zaznaczyć elementy, które chciałbyś umieścić w swoim ogrodzie:</label><br /><br />
+                                        <div class="items-choose">
+                                            <label>
+                                                <input name="garden_items" value="rośliny" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">rośliny</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="ścieżki" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">ścieżki</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="podjazd" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">podjazd</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="parking" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">parking</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="taras" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">taras</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="pergola" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">pergola</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="altanka" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">altanka</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="trejaż" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">trejaż</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="donice" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">donice ogrodowe</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="staw" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">staw</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="kaskada" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">kaskada</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="oczko" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">oczko wodne</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="fontanna" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">fontanna</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="balia" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">balia</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="jacuzzi" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">jacuzzi</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="sklaniak" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">sklaniak</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="huśtawka" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">huśtawka</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="plac-zabaw" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">plac zabaw</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="ognisko" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">miejsce na ognisko</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="grill" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">miejsce na grilla</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="ławki" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">ławki</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="warzywniak" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">ogród warzywny</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="sad" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">sad</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="zioła" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">ogród ziołowy</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="żywopłot" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">żywopłot</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="kompostownik" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">kompostownik</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="rzeźby" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">rzeźby ogrodowe</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="murki" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">murki oporowe</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="oświetlenie" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">oświetlenie</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_items" value="drewutnia" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">drewutnia</span>
+                                            </label><br />
+                                            <label>
+                                                <input name="garden_items" value="inne" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">inne</span><br />
+                                            </label><br />
+                                            <label id="garden_items-error" class="error" for="garden_items"></label><br/>
+                                        </div>
+                                        <textarea name="items-in-garden" id="others-items"></textarea>
+                                    </li>
+                                    <li>
+                                        <label for="favourite-elements" class="question">Co lubisz w swoim ogrodzie najbardziej?</label><br /><br />
+                                        <textarea name="favourite" id="favourite-elements"></textarea>
+                                    </li>
+                                    <li>
+                                        <label for="changes" class="question">Co zmieniłbyś w swoim ogrodzie? Czego nie lubisz w swoim ogrodzie?</label><br /><br />
+                                        <textarea name="changes_garden" id="changes"></textarea>
+                                    </li>
+                                    <li>
+                                        <label for="do-in-garden" class="question">Co najczęściej robisz lub planujesz robić w ogrodzie?</label><br /><br />
+                                        <textarea name="do_in_garden" id="do-in-garden"></textarea>
+                                    </li>
+                                    <li>
+                                        <label for="garden-function" class="question">Które z poniższych funkcji powinny być uwzględnione w ogrodzie?</label><br /><br />
+                                        <div class="items-choose">
+                                            <label>
+                                                <input name="garden_function_items" value="wygląd" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">poprawa wyglądu domu</span><br />
+                                            </label>
+                                            <label>
+                                                <input name="garden_function_items" value="zabawa" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">miejsce do zabawy dla dzieci</span><br />
+                                            </label>
+                                            <label>
+                                                <input name="garden_function_items" value="relaks" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">miejsce do relaksu</span><br />
+                                            </label>
+                                            <label>
+                                                <input name="garden_function_items" value="jedzenie" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">miejsce do jedzenia</span><br />
+                                            </label>
+                                            <label>
+                                                <input name="garden_function_items" value="sport" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">miejsce do sportu i rekreacji, aktywności rodzinnych</span><br />
+                                            </label><br />
+                                            <label>
+                                                <input name="garden_function_items" value="inne" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">inne</span><br />
+                                            </label><br />
+                                            <label id="garden_function_items-error" class="error" for="garden_function_items"></label>
+                                        </div>
+                                        <textarea name="garden-function" id="garden-function"></textarea>
+                                    </li>
+                                    <li>
+                                        Jaki styl ogrodu preferujesz?<br /><br />
+                                        <div class="items-choose">
+                                            <label>
+                                                <input name="garden_style_items" value="japoński" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">japoński</span><br />
+                                            </label>
+                                            <label>
+                                                <input name="garden_style_items" value="nowoczesny" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">nowoczesny</span><br />
+                                            </label>
+                                            <label>
+                                                <input name="garden_style_items" value="wiejski" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">wiejski</span><br />
+                                            </label>
+                                            <label>
+                                                <input name="garden_style_items" value="sródziemnomorski" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">śródziemnomorski</span><br />
+                                            </label>
+                                            <label>
+                                                <input name="garden_style_items" value="angielski" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">angielski</span><br />
+                                            </label>
+                                            <label>
+                                                <input name="garden_style_items" value="formalny" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">formalny</span><br />
+                                            </label>
+                                            <label>
+                                                <input name="garden_style_items" value="naturalistyczny" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">naturalistyczny</span><br />
+                                            </label>
+                                            <label>
+                                                <input name="garden_style_items" value="francuski" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">francuski</span><br />
+                                            </label>
+                                            <label>
+                                                <input name="garden_style_items" value="minimalistyczny" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">minimalistyczny</span><br />
+                                            </label><br />
+                                            <label id="garden_style_items-error" class="error" for="garden_style_items"></label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        Jakie kształt ogrodu preferujesz?<br /><br />
+                                        <div class="items-choose">
+                                            <label>
+                                                <input name="garden_style_shape" value="swobodny" type="radio" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">swobodny, faliste linie</span><br />
+                                            </label>
+                                            <label>
+                                                <input name="garden_style_shape" value="geometryczny" type="radio" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">geometryczny</span><br />
+                                            </label>
+                                            <label>
+                                                <input name="garden_style_shape" value="mieszany" type="radio" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">mieszany</span><br />
+                                            </label>
+                                            <label id="garden_style_shape-error" class="error" for="garden_style_shape"></label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        Czy kiedykolwiek widziałeś konkretny ogród u sąsiada, w czasopiśmie, książkach, lub na stronie internetowej, który spodobał Ci się szczególnie? Jeśli tak, to czy możesz przesłać zdjęcie tego ogrodu?<br /><br />
+                                        <input id="my-file" type="file" name="files" multiple>
+                                        <ul class="output"></ul>
+                                    </li>
+                                    <li>
+                                        Jakie rodzaje roślin chcesz w swoim ogrodzie?<br /><br />
+                                        <div class="items-choose">
+                                            <label>
+                                                <input name="garden_plants" value="iglaste" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">iglaste</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_plants" value="liściaste" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">liściaste</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_plants" value="rodzime" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">rodzime, rosnące naturalnie w Polsce</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_plants" value="byliny" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">byliny</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_plants" value="pnącza" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">pnącza</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_plants" value="róże" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">róże</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_plants" value="wrzosowate" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">rośliny wrzosowate</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_plants" value="zioła" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">zioła</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_plants" value="drzewa-owocowe" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">drzewa owocowe</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_plants" value="krzewy-owocowe" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">krzewy owocowe</span>
+                                            </label>
+                                            <label>
+                                                <input name="garden_plants" value="żadnych-roślin" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">nie chcę mieć roślin</span>
+                                            </label><br />
+                                            <label id="garden_plants-error" class="error" for="garden_plants"></label><br />
+                                        </div>
+                                        <label for="favourites-plants" class="question">Czy masz ulubione drzewa, krzewy, kwiaty, pnącza, rośliny okrywowe, trawy lub byliny?</label><br /><br />
+                                        <label>
+                                            <input name="favourite_plants" value="tak" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">tak</span>
+                                        </label>
+                                        <label>
+                                            <input name="favourite_plants" value="nie" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">nie</span>
+                                        </label>
+                                        <label id="favourite_plants-error" class="error" for="favourite_plants"></label><br /><br />
+                                        <textarea name="favourite-plants" id="favourites-plants"></textarea><br /><br />
+                                        <label for="cut-plants" class="question">Czy jesteś zainteresowany rosnącymi kwiatami dla zapachu lub do cięcia?</label><br /><br />
+                                        <label>
+                                            <input name="smell_cut_flowers" value="tak" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">tak</span>
+                                        </label>
+                                        <label>
+                                            <input name="smell_cut_flowers" value="nie" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">nie</span>
+                                        </label>
+                                        <label id="smell_cut_flowers-error" class="error" for="smell_cut_flowers"></label><br /><br />
+                                        <textarea name="smell-cut-flowers" id="cut-plants"></textarea><br /><br />
+                                        <label for="like-plants" class="question">Czy są jakieś rośliny lub kolory, które Ci się szczególnie podobają?</label><br /><br />
+                                        <label>
+                                            <input name="colour_like_plants" value="tak" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">tak</span>
+                                        </label>
+                                        <label>
+                                            <input name="colour_like_plants" value="nie" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">nie</span>
+                                        </label>
+                                        <label id="colour_like_plants-error" class="error" for="colour_like_plants"></label><br /><br />
+                                        <textarea name="colour-like-plants" id="like-plants"></textarea><br /><br />
+                                        <label for="dislike-plants-colour" class="question">Czy są jakieś rośliny lub kolory, które Ci się <bold>nie</bold> podobają?</label><br /><br />
+                                        <label>
+                                            <input name="colour_dislike_plants" value="tak" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">tak</span>
+                                        </label>
+                                        <label>
+                                            <input name="colour_dislike_plants" value="nie" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">nie</span>
+                                        </label>
+                                        <label id="colour_dislike_plants-error" class="error" for="colour_dislike_plants"></label><br /><br />
+                                        <textarea name="colour-dislike-plants" id="dislike-plants-colour"></textarea><br /><br />
+                                    </li>
+                                    <li>
+                                        <label for="favourite-place-garden" class="question">Czy jest jakieś szczególne miejsce w ogrodzie, które lubisz najbardziej?</label><br /><br />
+                                        <label>
+                                            <input name="like_place_in_garden" value="tak" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">tak</span>
+                                        </label>
+                                        <label>
+                                            <input name="like_place_in_garden" value="nie" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">nie</span>
+                                        </label>
+                                        <label id="like_place_in_garden-error" class="error" for="like_place_in_garden"></label><br /><br />
+                                        <textarea name="like-place-in-garden" id="favourite-place-garden"></textarea>
+                                    </li>
+                                    <li>
+                                        <label for="dislake-place-garden" class="question">Czy jest jakieś szczególne miejsce w ogrodzie, którego nie lubisz?</label><br /><br />
+                                        <label>
+                                            <input name="dislike_place" value="tak" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">tak</span>
+                                        </label>
+                                        <label>
+                                            <input name="dislike_place" value="nie" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">nie</span>
+                                        </label>
+                                        <label id="dislike_place-error" class="error" for="dislike_place"></label><br /><br />
+                                        <textarea name="dislike-place" id="dislake-place-garden"></textarea>
+                                    </li>
+                                    <li>
+                                        <label for="cut-remove-trees" class="question">Czy chciałbyś usunąć jakieś drzewa lub krzewy ze swojego ogrodu?</label><br /><br />
+                                        <label>
+                                            <input name="remove_plants" value="tak" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">tak</span>
+                                        </label>
+                                        <label>
+                                            <input name="remove_plants" value="nie" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">nie</span>
+                                        </label>
+                                        <label id="remove_plants-error" class="error" for="remove_plants"></label><br /><br />
+                                        <textarea name="remove-plants" id="cut-remove-trees"></textarea>
+                                    </li>
+                                    <li>
+                                        <label for="replant-plants" class="question">Czy chciałbyś poprzesadzać rośliny? Jeżeli tak, które?</label><br /><br />
+                                        <label>
+                                            <input name="replant" value="tak" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">tak</span>
+                                        </label>
+                                        <label>
+                                            <input name="replant" value="nie" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">nie</span>
+                                        </label>
+                                        <label id="replant-error" class="error" for="replant"></label><br /><br />
+                                        <textarea name="replant" id="replant-plants"></textarea>
+                                    </li>
+                                    <li>
+                                        <label for="cover-view-garden" class="question">Czy chcesz przysłonić jakieś widoki w ogrodzie? Oddzielić się od sąsiada?</label><br /><br />
+                                        <label>
+                                            <input name="cover_view_in_garden" value="tak" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">tak</span>
+                                        </label>
+                                        <label>
+                                            <input name="cover_view_in_garden" value="nie" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">nie</span>
+                                        </label>
+                                        <label id="cover_view_in_garden-error" class="error" for="cover_view_in_garden"></label><br /><br />
+                                        <textarea name="cover-view-in-garden" id="cover-view-garden"></textarea>
+                                    </li>
+                                    <li>
+                                        <label for="hard-condition-garden" class="question">Czy są jakieś nieprawidłowości w ogrodzie np. silne podmuchy wiatrów, miejsca zalewowe, gdzie zbiera się duża ilość wody w ogrodzie?</label><br /><br />
+                                        <label>
+                                            <input name="hard_condition_in_garden" value="tak" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">tak</span>
+                                        </label>
+                                        <label>
+                                            <input name="hard_condition_in_garden" value="nie" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">nie</span>
+                                        </label>
+                                        <label id="hard_condition_in_garden-error" class="error" for="hard_condition_in_garden"></label><br /><br />
+                                        <textarea name="hard-condition-in-garden" id="hard-condition-garden"></textarea>
+                                    </li>
+                                    <li>
+                                        <label for="place-dumpster" class="question">Czy posiadasz konkretne miejsce na śmietnik? Jeżeli nie to czy masz jakieś preferencje, co do jego lokalizacji, zabudowy?</label><br /><br />
+                                        <label>
+                                            <input name="place_for_dumpster" value="ścieżki" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">tak</span>
+                                        </label>
+                                        <label>
+                                            <input name="place_for_dumpster" value="ścieżki" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">nie</span>
+                                        </label>
+                                        <label id="place_for_dumpster-error" class="error" for="place_for_dumpster"></label><br /><br />
+                                        <textarea name="place-for-dumpster" id="place-dumpster"></textarea>
+                                    </li>
+                                    <li>
+                                        <label for="shadow-sun-garden" class="question">Czy są w ogrodzie miejsca, w których występuje całkowity cień lub bardzo silne nasłonecznienie terenu?</label><br /><br />
+                                        <label>
+                                            <input name="strong_shadow_sun_in_garden" value="tak" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">tak</span>
+                                        </label>
+                                        <label>
+                                            <input name="strong_shadow_sun_in_garden" value="nie" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">nie</span>
+                                        </label>
+                                       <label id="strong_shadow_sun_in_garden-error" class="error" for="strong_shadow_sun_in_garden"></label><br /><br />
+                                        <textarea name="strong-shadow-sun-in-garden" id="shadow-sun-garden"></textarea>
+                                    </li>
+                                    <li>
+                                        <label for="pavement-garden" class="question">Jakie nawierzchnie ogrodowe preferujesz?</label><br /><br />
+                                        <div class="items-choose">
+                                            <label>
+                                                <input name="pavement_favourite_garden" value="kamień naturalny" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">kamień naturalny</span>
+                                            </label>
+                                            <label>
+                                                <input name="pavement_favourite_garden" value="drewno" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">drewno</span>
+                                            </label>
+                                            <label>
+                                                <input name="pavement_favourite_garden" value="kostka brukowa" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">kostka brukowa</span>
+                                            </label>
+                                            <label>
+                                                <input name="pavement_favourite_garden" value="kostka granitowa" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">kostka granitowa</span>
+                                            </label>
+                                            <label>
+                                                <input name="pavement_favourite_garden" value="żwirek" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">żwirek</span>
+                                            </label><br />
+                                            <label>
+                                                <input name="pavement_favourite_garden" value="inne" type="checkbox" class="checkbox-hide">
+                                                <span class="checkbox-field"></span>
+                                                <span class="choose">inne</span>
+                                            </label><br />
+                                            <label id="pavement_favourite_garden-error" class="error" for="pavement_favourite_garden"></label><br />
+                                        </div>
+                                        <textarea name="pavement_favourite_garden" id="pavement-garden"></textarea>
+                                    </li>
+                                </ol>
+                                <h4>RZECZYWISTOŚĆ:</h4>
+                                <ol>
+                                    <li>
+                                        <label for="many-for-garden" class="question">Czy masz jakiś konkretny budżet na projekt i budowę ogrodu?</label><br /><br />
+                                        <label>
+                                            <input name="garden_cost" value="tak" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">tak</span>
+                                        </label>
+                                        <label>
+                                            <input name="garden_cost" value="nie" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">nie</span>
+                                        </label>
+                                        <label id="garden_cost-error" class="error" for="garden_cost"></label><br /><br />
+                                        <textarea name="garden-cost" id="many-for-garden"></textarea>
+                                    </li>
+                                    <li>
+                                        <label for="maintenance-garden" class="question">Kto będzie zajmował się utrzymaniem ogrodu? Czy masz ogrodnika?</label><br /><br />
+                                        <label>
+                                            <input name="gardener" value="tak" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">tak</span>
+                                        </label>
+                                        <label>
+                                            <input name="gardener" value="nie" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">nie</span>
+                                        </label>
+                                        <label id="gardener-error" class="error" for="gardener"></label><br /><br />
+                                        <textarea name="gardener" id="maintenance-garden"></textarea>
+                                    </li>
+                                    <li>
+                                        <label for="easy-maintenance" class="question">Czy ogród ma być niewymagający co do opieki?</label><br /><br />
+                                        <label>
+                                            <input name="garden_easy_maintenance" value="tak" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">tak</span>
+                                        </label>
+                                        <label>
+                                            <input name="garden_easy_maintenance" value="nie" type="radio" class="checkbox-hide">
+                                            <span class="checkbox-field"></span>
+                                            <span class="choose">nie</span>
+                                        </label>
+                                        <label id="garden_easy_maintenance-error" class="error" for="garden_easy_maintenance"></label><br /><br />
+                                        <textarea name="garden-easy-maintenance" id="easy-maintenance"></textarea>
+                                    </li>
+                                </ol>
+                                <div class="summary">
+                                    <p>Do ankiety należy dołączyć:</p>
+                                    <ul class="attach-files">
+                                        <li>zeskanowany podkład geodezyjny lub w przypadku projektu online zwymiarowaną mapkę działki z zaznaczeniem: kierunku północy, obszaru objętego opracowaniem, drzew, krzewów i innej roślinności, instalacji podziemnych, elementów stałych małej architektury (murki, pergole, ławki itp.), nawierzchni, lokalizacji domu, lokalizacji ogrodzenia(tyle ile są Państwo w stanie zaznaczyć).</li>
+                                        <li>zdjęcia działki i domu</li>
+                                    </ul>
+                                    <div>
+                                        <input class="input-file-maps" id="my-file-maps" type="file" name="files_map" multiple required />
+                                    </div>
+                                    <label id="my-file-maps-error" class="error" for="my-file-maps"></label>
+                                    <div class="personal-data">
+                                        <div class="personal-data-left">
+                                            <input name="name" minlength="2" type="text" placeholder="Imię i Nazwisko" class="name-survey" required />
+                                        </div>
+                                        <div class="personal-data-right">
+                                            <input name="email" type="email" placeholder="E-mail" class="email-survey" required /><br />
+                                        </div>
+                                    </div>
+                                    <p class="thanks-survey">Dziękujemy za wypełnienie ankiety!</p>
+                                    <label for="other-information">Prosimy, aby dodać inne informacje, które mogą okazać się pomocne w planowaniu ogrodu, im więcej tym lepiej.</label><br /><br />
+                                    <textarea name="other-garden-information" id="other-information"></textarea><br /><br />
+                                    <div class="buttons-captcha">
+                                        <div class="g-recaptcha" data-sitekey="6Lc3sBoUAAAAAFCZZ4fVFSDp7uvSNN3vVnhnq2h3"></div>
+                                        <div class="buttons-wrapper">
+                                            <input type="submit" value="Wyślij" class="but send-button" id="send-survey" />
+                                            <input type="reset" class="but reset-button" id="reset-survey" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <% include ../partials/footer %>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcJH6ynHvnOvvhB69IMO1UMR7wuVUpMnQ&callback=initMap">
+        </script>
+    </body>
+</html>
